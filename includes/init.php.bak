@@ -1,0 +1,31 @@
+<? 
+
+require_once 'lib/Fz/UserAgent.php';
+require_once 'lib/Fz/utils/get_base_href.php';
+
+$base_href = get_base_href();
+
+$ua = new Fz_UserAgent();
+
+// if ( $ua->is_mobile() && strpos( $_SERVER[ 'HTTP_HOST' ], 'localhost' ) === false ) 
+// {
+// 	// header( 'Location: http://m.stopnazir.com');
+// 	//header( 'Location: http://m.' . $_SERVER[ 'HTTP_HOST' ] );
+// }
+
+$is_mobile = $ua->is_mobile();
+$is_tablet = $ua->is_tablet();
+$is_ipad = $ua->is_ipad();
+
+$doc_class = $is_tablet ? 'tablet' : 
+	$is_mobile ? 'mobile' : 
+	'desktop' ;
+
+if ( $is_ipad )
+{
+	$doc_class .= ' ipad';
+}
+
+$da = date(DATE_ATOM, mktime(0, 0, 0, 7, 1, 2000));
+
+/* EOF */
