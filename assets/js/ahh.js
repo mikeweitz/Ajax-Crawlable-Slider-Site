@@ -47,7 +47,7 @@ AHH.transition = function( node ){
 
 		// Check for same page:
 		if ($current.attr('id') === $ele.attr('id') ) {
-			console.log('same page - don\'t go anywhere');
+			log('same page - don\'t go anywhere');
 			return false;
 		}
 
